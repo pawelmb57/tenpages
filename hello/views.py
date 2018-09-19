@@ -9,8 +9,7 @@ from .models import Greeting
 # Create your views here.
 def index(request):
     times = int(os.environ.get('TIMES',3))
-    return HttpResponse('Hi! There ' * times)
-    print('Hello, world, again')
+    return HttpResponse('Hello! There ' * times)
 
 
 def db(request):
