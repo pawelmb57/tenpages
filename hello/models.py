@@ -12,10 +12,12 @@ class Greeting(models.Model):
 
 
 class Genre(models.Model):
-    name = models.CharField(max_length=200
-                            , help_text='Enter a book genre')
+    """Model representing a book genre."""
+    name = models.CharField(max_length=200, help_text='Enter a book genre (e.g. Science Fiction)')
 
-        return self.name
+    # def __str__(self):
+    #     """String for representing the Model object."""
+    #     return self.name
 
 
 class Book(models.Model):
