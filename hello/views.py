@@ -1,6 +1,3 @@
-import requests
-import os
-
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -8,8 +5,9 @@ from .models import Greeting
 
 # Create your views here.
 def index(request):
-    times = int(os.environ.get('TIMES',3))
-    return HttpResponse('Hello! ' * times)
+    # return HttpResponse('Hello from Python!')
+    return render(request, 'index.html')
+
 
 def db(request):
 

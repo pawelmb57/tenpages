@@ -16,8 +16,6 @@ import dj_database_url
 
 
 
-db_from_env = dj_database_url.config(conn_max_age=500, require_ssl=True)
-DATABASES['default'].update(db_from_env)
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -88,7 +86,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 db_from_env = dj_database_url.config(conn_max_age=500, ssl_require=True)
 DATABASES['default'].update(db_from_env)
