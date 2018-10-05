@@ -13,13 +13,11 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import django_heroku
 import dj_database_url
-<<<<<<< HEAD
-=======
+
 
 
 db_from_env = dj_database_url.config(conn_max_age=500, require_ssl=True)
 DATABASES['default'].update(db_from_env)
->>>>>>> 38c6cc33a59836d7a6d443fc53cbecbe09c6fa4b
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
