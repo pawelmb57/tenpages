@@ -12,6 +12,7 @@ import hello.views
 
 urlpatterns = [
     url(r'^hello/$', hello.views.index, name='index'),
+    path(r'hello/login.html', hello.views.login, name='login'),
     url(r'^db', hello.views.db, name='db'),
     path('admin/', admin.site.urls),
 ]
