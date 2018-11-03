@@ -9,31 +9,18 @@ admin.autodiscover()
 
 from tenpgs import views
 
-# Examples:
-# url(r'^$', 'gettingstarted.views.home', name='home'),
-# url(r'^blog/', include('blog.urls')),
-
-# urlpatterns = [
-#     url(r'^hello/$', hello.views.index, name='index'),
-#     path(r'hello/login.html', hello.views.login, name='login'),
-#     url(r'^db', hello.views.db, name='db'),
-#     path('admin/', admin.site.urls),
-# ]
 
 
 urlpatterns = [
-    path('index.html', views.index, name='index'),
-
-    # path('tenpgs/login.html', views.login, name='login'),
-    # path('tenpgs/signup.html', views.signup, name='signup'),
-    # url(r'^login/$', auth_views.LoginView.as_view(template_name="tenpgs/login.html"), name="login"),
-
-
+    url(r'^$', views.index, name='index'),
     path('admin/', admin.site.urls),
-] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
+    # url(r'^signup/$', views.signup, name='signup'),
+
+]
 
 
 urlpatterns += [
-    path('accounts/', include('django.contrib.auth.urls'))
+    path('accounts/', include('django.contrib.auth.urls')),
+
 ]

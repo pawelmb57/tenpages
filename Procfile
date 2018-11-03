@@ -1,1 +1,1 @@
-web: gunicorn tenpgs.wsgi
+web: gunicorn tenpgs.wsgi --log-file -

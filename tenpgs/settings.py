@@ -41,13 +41,15 @@ AUTH_USER_MODEL = 'tenpgs.User'
 # Application definition
 
 INSTALLED_APPS = [
+    'tenpgs',
+    # 'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tenpgs'
+    # 'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -139,7 +141,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-LOGIN_REDIRECT_URL = '/'
+
+# ACCOUNT_ACTIVATION_DAYS = 7
+# REGISTRATION_AUTO_LOGIN = True
+# LOGIN_REDIRECT_URL = '/'
+# LOGIN_URL = '/accounts/login/'
+
+
 
 
 django_heroku.settings(locals())
