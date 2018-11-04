@@ -2,6 +2,9 @@ import os
 import warnings
 from django.utils.translation import ugettext_lazy as _
 from os.path import dirname
+import django_heroku
+import dj_database_url
+
 
 warnings.simplefilter('error', DeprecationWarning)
 
@@ -70,12 +73,29 @@ EMAIL_FILE_PATH = os.path.join(CONTENT_DIR, 'tmp/emails')
 EMAIL_HOST_USER = 'test@example.com'
 DEFAULT_FROM_EMAIL = 'test@example.com'
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=500, ssl_require=True)
+DATABASES['default'].update(db_from_env)
+
+
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -134,3 +154,6 @@ STATICFILES_DIRS = [
 LOCALE_PATHS = [
     os.path.join(CONTENT_DIR, 'locale')
 ]
+
+
+django_heroku.settings(locals())
