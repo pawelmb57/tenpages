@@ -14,7 +14,11 @@ CONTENT_DIR = os.path.join(BASE_DIR, 'content')
 SECRET_KEY = 'NhfTvayqggTBPswCXXhWaN69HuglgZIkM'
 
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '10pgs.com',
+    'www.10pgs.com',
+    'tenpages-testing.herokuapp.com',
+]
 
 SITE_ID = 1
 
@@ -171,4 +175,4 @@ LOCALE_PATHS = [
 ]
 
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
