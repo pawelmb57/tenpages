@@ -1,1 +1,1 @@
-web: gunicorn tenpages.wsgi --log-file -
+web: gunicorn app.wsgi --log-file -
