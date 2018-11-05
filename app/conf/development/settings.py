@@ -175,4 +175,4 @@ LOCALE_PATHS = [
 ]
 
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
