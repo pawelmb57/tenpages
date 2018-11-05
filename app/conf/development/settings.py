@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     # Vendor apps
-    'bootstrap4',
+    # 'bootstrap4',
 
     # Application apps
     'main',
