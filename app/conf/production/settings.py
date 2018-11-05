@@ -65,13 +65,20 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_HOST = ''
-EMAIL_HOST_USER = ''
-DEFAULT_FROM_EMAIL = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST = 'mail.10pgs.com'
+EMAIL_HOST_USER = 'pawel@10pgs.com'
+DEFAULT_FROM_EMAIL = 'pawel@10pgs.com'
+EMAIL_HOST_PASSWORD = 'readtenpages!'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 DATABASES = {
     'default': {
@@ -79,6 +86,11 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=500, ssl_require=True)
+DATABASES['default'].update(db_from_env)
+
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
