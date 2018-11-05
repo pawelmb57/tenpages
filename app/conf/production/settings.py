@@ -23,7 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Vendor apps
-    # 'bootstrap4',
+    'bootstrap4',
 
     # Application apps
     'main',

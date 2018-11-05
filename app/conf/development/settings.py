@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     # Vendor apps
-    # 'bootstrap4',
+    'bootstrap4',
 
     # Application apps
     'main',
@@ -175,4 +175,4 @@ LOCALE_PATHS = [
 ]
 
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
