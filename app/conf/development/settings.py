@@ -111,16 +111,14 @@ EMAIL_USE_SSL = True
 # }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd8itd9722djup5',
-        'USER': 'bjpgvelgroxszc',
-        'PASSWORD': 'd2a71e550b5d1207360354327998d40e0e3efde30f0047fece2a59af708565f5',
-        'HOST': 'ec2-23-23-80-20.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
+'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'd8itd9722djup5',
+    'USER': 'bjpgvelgroxszc',
+    'PASSWORD': 'd2a71e550b5d1207360354327998d40e0e3efde30f0047fece2a59af708565f5',
+    'HOST': 'ec2-23-23-80-20.compute-1.amazonaws.com',
+    'PORT': '5432',
 }
-
 
 db_from_env = dj_database_url.config(conn_max_age=500, ssl_require=True)
 DATABASES['default'].update(db_from_env)
