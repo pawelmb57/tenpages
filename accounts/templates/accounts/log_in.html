@@ -1,33 +1,103 @@
-{% extends 'layouts/default/page.html' %}
 
+{% load static %}
 {% load i18n %}
 {% load bootstrap4 %}
 
-{% block content %}
 
-    <h4>{% trans 'Log in' %}</h4>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- End Required meta tags -->
+  <!-- Begin SEO tag -->
+  <title> Ten Pages Log In </title>
+  <meta property="og:title" content="Sign In">
+  <meta name="author" content="Beni Arisandi">
+  <meta property="og:locale" content="en_US">
+  <meta name="description" content="Responsive admin theme build on top of Bootstrap 4">
+  <meta property="og:description" content="Responsive admin theme build on top of Bootstrap 4">
+  <link rel="canonical" href="http://uselooper.com">
+  <meta property="og:url" content="http://uselooper.com">
+  <meta property="og:site_name" content="Looper - Bootstrap 4 Admin Theme">
+  <script type="application/ld+json">
+    {
+      "name": "Looper - Bootstrap 4 Admin Theme",
+      "description": "Responsive admin theme build on top of Bootstrap 4",
+      "author":
+      {
+        "@type": "Person",
+        "name": "Beni Arisandi"
+      },
+      "@type": "WebSite",
+      "url": "",
+      "headline": "Sign In",
+      "@context": "http://schema.org"
+    }
+  </script>
+  <!-- End SEO tag -->
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static '/looperassets/apple-touch-icon.png' %}">
+  <link rel="shortcut icon" href="{% static '/looperassets/favicon.ico' %}">
+  <meta name="theme-color" content="#3063A0">
+  <!-- BEGIN BASE STYLES -->
+  <link rel="stylesheet" href="{% static '/looperassets/vendor/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static '/looperassets/vendor/fontawesome/css/fontawesome.all.css' %}">
+  <!-- END BASE STYLES -->
+  <!-- BEGIN THEME STYLES -->
+  <link rel="stylesheet" href="{% static '/looperassets/stylesheets/main.min.css' %}">
+  <link rel="stylesheet" href="{% static '/looperassets/stylesheets/custom.css' %}">
+  <!-- END THEME STYLES -->
+</head>
+<body>
 
-    <form method="post">
 
+    <!-- .auth -->
+    <main class="auth auth-floated">
+
+
+
+
+
+
+      <!-- form -->
+      <form method="post" class="auth-form" action="">
         {% csrf_token %}
+
+
+        <div class="mb-4">
+          <div class="mb-3">
+            <img class="rounded" src="{% static '/looperassets/apple-touch-icon.png' %}" alt="" height="72"> </div>
+          <h1 class="h3"> Sign In </h1>
+        </div>
+        <p class="text-left mb-4"> Don't have a account?
+          <a href="/accounts/sign-up/">Create One</a>
+        </p>  
+
         {% bootstrap_form form %}
 
         <button class="btn btn-primary">{% trans 'Log in' %}</button>
 
-    </form>
 
-    <hr>
 
-    <ul>
-        <li>
-            <a href="{% url 'accounts:restore_password' %}">{% trans 'Forgot your password?' %}</a>
-        </li>
-        <li>
-            <a href="{% url 'accounts:remind_username' %}">{% trans 'Forgot your username?' %}</a>
-        </li>
-        <li>
-            <a href="{% url 'accounts:resend_activation_code' %}">{% trans 'Resend an activation code' %}</a>
-        </li>
-    </ul>
 
-{% endblock %}
+
+
+      </form>
+
+      <section id="announcement" class="auth-announcement" style="background-image: url({% static '/looperassets/images/illustration/img-3.png' %});">
+        <div class="announcement-body">
+          <h2 class="announcement-title"> READ TEN PAGES YO </h2>
+
+        </div>
+      </section>
+    </main>
+
+
+
+
+
+
+
+
+
+</body>
