@@ -146,3 +146,15 @@ STATICFILES_DIRS = [
 LOCALE_PATHS = [
     os.path.join(CONTENT_DIR, 'locale')
 ]
+
+
+
+# makemigrations requires this for some reason or it errors
+# Just set to the default value
+OAUTH2_PROVIDER_APPLICATION_MODEL = 'oauth2_provider.Application'
+
+# tell django where to put the oauth2 migrations
+MIGRATION_MODULES = {
+   # key: app name, value: a fully qualified package name, not the usual `app_label.something_else`
+  'oauth2_provider': 'yourproject.migrations.oauth2_provider',
+}
