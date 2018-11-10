@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     # Application apps
     'main',
     'accounts',
+    'oauth2_provider'
 ]
 
 MIDDLEWARE = [
