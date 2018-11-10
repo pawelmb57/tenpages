@@ -1,6 +1,11 @@
 import os
-from os.path import dirname
 from django.utils.translation import ugettext_lazy as _
+from os.path import dirname
+
+# import warnings
+import django_heroku
+import dj_database_url
+
 
 
 BASE_DIR = dirname(dirname(dirname(dirname(os.path.abspath(__file__)))))
@@ -10,8 +15,11 @@ SECRET_KEY = '3d305kajG5Jy8KBafCMpHwDIsNi0SqVaW'
 
 DEBUG = False
 ALLOWED_HOSTS = [
-    'example.com',
+    '10pgs.com',
+    'www.10pgs.com',
+    'tenpages-testing.herokuapp.com',
 ]
+
 
 SITE_ID = 1
 
@@ -82,12 +90,17 @@ EMAIL_USE_SSL = True
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+
+DATABASES = {
+'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'd8itd9722djup5',
+    'USER': 'bjpgvelgroxszc',
+    'PASSWORD': 'd2a71e550b5d1207360354327998d40e0e3efde30f0047fece2a59af708565f5',
+    'HOST': 'ec2-23-23-80-20.compute-1.amazonaws.com',
+    'PORT': '5432',
+}
+}
 
 db_from_env = dj_database_url.config(conn_max_age=500, ssl_require=True)
 DATABASES['default'].update(db_from_env)
@@ -147,3 +160,6 @@ STATICFILES_DIRS = [
 LOCALE_PATHS = [
     os.path.join(CONTENT_DIR, 'locale')
 ]
+
+
+django_heroku.settings(locals())
