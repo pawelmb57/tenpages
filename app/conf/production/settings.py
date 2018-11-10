@@ -2,6 +2,7 @@ import os
 from os.path import dirname
 from django.utils.translation import ugettext_lazy as _
 
+
 BASE_DIR = dirname(dirname(dirname(dirname(os.path.abspath(__file__)))))
 CONTENT_DIR = os.path.join(BASE_DIR, 'content')
 
@@ -29,7 +30,6 @@ INSTALLED_APPS = [
     # Application apps
     'main',
     'accounts',
-    'oauth2_provider'
 ]
 
 MIDDLEWARE = [
@@ -82,12 +82,12 @@ EMAIL_USE_SSL = True
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 db_from_env = dj_database_url.config(conn_max_age=500, ssl_require=True)
 DATABASES['default'].update(db_from_env)
@@ -147,15 +147,3 @@ STATICFILES_DIRS = [
 LOCALE_PATHS = [
     os.path.join(CONTENT_DIR, 'locale')
 ]
-
-
-
-# makemigrations requires this for some reason or it errors
-# Just set to the default value
-OAUTH2_PROVIDER_APPLICATION_MODEL = 'oauth2_provider.Application'
-
-# tell django where to put the oauth2 migrations
-MIGRATION_MODULES = {
-   # key: app name, value: a fully qualified package name, not the usual `app_label.something_else`
-  'oauth2_provider': 'yourproject.migrations.oauth2_provider',
-}
