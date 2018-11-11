@@ -1,0 +1,152 @@
+{% load static %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- End Required meta tags -->
+  <!-- Begin SEO tag -->
+  <title> Starter Template | Looper - Bootstrap 4 Admin Theme </title>
+  <meta property="og:title" content="Starter Template">
+  <meta name="author" content="Beni Arisandi">
+  <meta property="og:locale" content="en_US">
+  <meta name="description" content="Responsive admin theme build on top of Bootstrap 4">
+  <meta property="og:description" content="Responsive admin theme build on top of Bootstrap 4">
+  <link rel="canonical" href="http://uselooper.com">
+  <meta property="og:url" content="http://uselooper.com">
+  <meta property="og:site_name" content="Looper - Bootstrap 4 Admin Theme">
+  <script type="application/ld+json">
+    {
+      "name": "Looper - Bootstrap 4 Admin Theme",
+      "description": "Responsive admin theme build on top of Bootstrap 4",
+      "author":
+      {
+        "@type": "Person",
+        "name": "Beni Arisandi"
+      },
+      "@type": "WebSite",
+      "url": "",
+      "headline": "Starter Template",
+      "@context": "http://schema.org"
+    }
+  </script>
+  <!-- End SEO tag -->
+  <!-- FAVICONS -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static '/looperassets/apple-touch-icon.png' %}">
+  <link rel="shortcut icon" href="{% static '/looperassets/favicon.ico' %}">
+  <meta name="theme-color" content="#3063A0">
+  <!-- End FAVICONS -->
+  <script src="{% static '/looperassets/vendor/pace/pace.min.js' %}"></script>
+  <!-- BEGIN BASE STYLES -->
+  <link rel="stylesheet" href="{% static '/looperassets/vendor/pace/pace.min.css' %}">
+  <link rel="stylesheet" href="{% static '/looperassets/vendor/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static '/looperassets/vendor/open-iconic/css/open-iconic-bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static '/looperassets/vendor/fontawesome/css/fontawesome.all.css' %}">
+  <!-- END BASE STYLES -->
+  <!-- BEGIN THEME STYLES -->
+  <link rel="stylesheet" href="{% static '/looperassets/stylesheets/main.min.css' %}">
+  <link rel="stylesheet" href="{% static '/looperassets/stylesheets/custom.css' %}">
+  <!-- END THEME STYLES -->
+</head>
+<body>
+  <!-- .app -->
+  <div class="app has-fullwidth">
+    <!-- .app-header -->
+    <header class="app-header">
+      <!-- .top-bar -->
+      <div class="top-bar">
+        <!-- .top-bar-brand -->
+        <div class="top-bar-brand">
+          <a href="/">
+            <img src="{% static '/looperassets/images/brand-inverse.png' %}" height="32" alt="">
+          </a>
+        </div>
+        <!-- /.top-bar-brand -->
+        <!-- .top-bar-list -->
+        <div class="top-bar-list">
+                    <!-- .top-bar-item -->
+          <div class="top-bar-item px-2 d-md-none d-lg-none d-xl-none">
+            <!-- toggle menu -->
+            <button class="hamburger hamburger-squeeze" type="button" data-toggle="aside" aria-label="Menu" aria-controls="navigation">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+
+          <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
+
+              <button class="btn-account d-none d-md-flex" type="button" aria-haspopup="true" aria-expanded="false">
+
+                <a href="{% url 'accounts:log_in' %}">
+                  <span class="user-avatar">
+                    <img src="{% static '/looperassets/images/avatars/team4.jpg' %} " alt="">
+                  </span>
+
+                </a>
+
+            </button>
+
+              <!-- /.dropdown-menu -->
+            <!-- /.btn-account -->
+          </div>
+          <!-- /.top-bar-item -->
+        </div>
+        <!-- /.top-bar-list -->
+      <!-- /.top-bar -->
+    </header>
+    <!-- /.app-header -->
+    <!-- .app-aside -->
+
+    <!-- /.app-aside -->
+    <!-- .app-main -->
+    <main class="app-main">
+      <!-- .wrapper -->
+      <div class="wrapper">
+        <!-- .page -->
+        <div class="page">
+          <!-- .page-inner -->
+          <div class="page-inner">
+            <!-- .page-title-bar -->
+            <header class="page-title-bar">
+
+
+
+
+            </header>
+            <!-- /.page-title-bar -->
+            <!-- .page-section -->
+            <div class="page-section">
+              {% block content %}
+
+              {% endblock %}
+            </div>
+            <!-- /.page-section -->
+          </div>
+          <!-- /.page-inner -->
+        </div>
+        <!-- /.page -->
+      </div>
+      <!-- /.wrapper -->
+    </main>
+    <!-- /.app-main -->
+  </div>
+  <!-- /.app -->
+  <!-- BEGIN BASE JS -->
+  <script src="{% static '/looperassets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static '/looperassets/vendor/bootstrap/js/popper.min.js' %}"></script>
+  <script src="{% static '/looperassets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <!-- END BASE JS -->
+  <!-- BEGIN PLUGINS JS -->
+  <script src="{% static '/looperassets/vendor/stacked-menu/stacked-menu.min.js' %}"></script>
+  <script src="{% static '/looperassets/vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+  <!-- END PLUGINS JS -->
+  <!-- BEGIN THEME JS -->
+  <script src="{% static '/looperassets/javascript/main.min.js' %}"></script>
+  <!-- END THEME JS -->
+</body>
