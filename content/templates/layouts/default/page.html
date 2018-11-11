@@ -3,7 +3,6 @@
 {% load bootstrap4 %}
 
 
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -40,7 +39,7 @@
   <link rel="shortcut icon" href="{% static '/looperassets/favicon.ico' %}">
   <meta name="theme-color" content="#3063A0">
   <!-- End FAVICONS -->
-  <script src="assets/vendor/pace/pace.min.js' %}"></script>
+  <script src="{% static '/looperassets/vendor/pace/pace.min.js' %}"></script>
   <!-- BEGIN BASE STYLES -->
   <link rel="stylesheet" href="{% static '/looperassets/vendor/pace/pace.min.css' %}">
   <link rel="stylesheet" href="{% static '/looperassets/vendor/bootstrap/css/bootstrap.min.css' %}">
@@ -350,7 +349,7 @@
             <div class="dropdown">
               <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="user-avatar">
-                  <img src="{% static '/looperassets/images/avatars/profile.jpg' %}" alt="">
+                  <img src="assets/images/avatars/profile.jpg" alt="">
                 </span>
                 <span class="account-summary pr-lg-4 d-none d-lg-block">
                   <span class="account-name">Beni Arisandi</span>
@@ -792,7 +791,6 @@
             <!-- .page-title-bar -->
             <header class="page-title-bar">
               <!-- page title stuff goes here -->
-              asdf
             </header>
             <!-- /.page-title-bar -->
             <!-- .page-section -->
