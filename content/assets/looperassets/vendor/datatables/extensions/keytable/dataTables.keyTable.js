@@ -1,11 +1,11 @@
-/*! KeyTable 2.4.1
+/*! KeyTable 2.5.0
  * ©2009-2018 SpryMedia Ltd - datatables.net/license
  */
 
 /**
  * @summary     KeyTable
  * @description Spreadsheet like keyboard navigation for DataTables
- * @version     2.4.1
+ * @version     2.5.0
  * @file        dataTables.keyTable.js
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
@@ -241,14 +241,30 @@ $.extend( KeyTable.prototype, {
 
 			if ( this.c.editOnFocus ) {
 				dt.on( 'key-focus.keyTable key-refocus.keyTable', function ( e, dt, cell, orig ) {
-					that._editor( null, orig );
+					that._editor( null, orig, true );
 				} );
 			}
 
 			// Activate Editor when a key is pressed (will be ignored, if
 			// already active).
 			dt.on( 'key.keyTable', function ( e, dt, key, cell, orig ) {
-				that._editor( key, orig );
+				that._editor( key, orig, false );
+			} );
+
+			// Active editing on double click - it will already have focus from
+			// the click event handler above
+			$( dt.table().body() ).on( 'dblclick.keyTable', 'th, td', function (e) {
+				if ( that.s.enable === false ) {
+					return;
+				}
+
+				var cell = dt.cell( this );
+
+				if ( ! cell.any() ) {
+					return;
+				}
+
+				that._editor( null, e, true );
 			} );
 		}
 
@@ -445,26 +461,27 @@ $.extend( KeyTable.prototype, {
 	 * @param  {object} orig Original event
 	 * @private
 	 */
-	_editor: function ( key, orig )
+	_editor: function ( key, orig, hardEdit )
 	{
 		var that = this;
 		var dt = this.s.dt;
 		var editor = this.c.editor;
+		var editCell = this.s.lastFocus.cell;
 
 		// Do nothing if there is already an inline edit in this cell
-		if ( $('div.DTE', this.s.lastFocus.cell.node()).length ) {
+		if ( $('div.DTE', editCell.node()).length ) {
 			return;
 		}
 
 		// Don't activate Editor on control key presses
-		if (
+		if ( key !== null && (
 			(key >= 0x00 && key <= 0x09) ||
 			key === 0x0b ||
 			key === 0x0c ||
 			(key >= 0x0e && key <= 0x1f) ||
 			(key >= 0x70 && key <= 0x7b) ||
 			(key >= 0x7f && key <= 0x9f)
-		) {
+		) ) {
 			return;
 		}
 
@@ -483,38 +500,51 @@ $.extend( KeyTable.prototype, {
 					editor.off( 'cancelOpen.keyTable' );
 
 					// Excel style - select all text
-					if ( that.c.editAutoSelect ) {
+					if ( ! hardEdit ) {
 						$('div.DTE_Field_InputControl input, div.DTE_Field_InputControl textarea').select();
 					}
 
 					// Reduce the keys the Keys listens for
-					dt.keys.enable( that.c.editorKeys );
+					dt.keys.enable( hardEdit ? 'tab-only' : 'navigation-only' );
 
 					// On blur of the navigation submit
-					dt.one( 'key-blur.editor', function () {
+					dt.on( 'key-blur.editor', function () {
 						if ( editor.displayed() ) {
 							editor.submit();
 						}
+					} );
+
+					// Highlight the cell a different colour on full edit
+					if ( hardEdit ) {
+						$( dt.table().container() ).addClass('dtk-focus-alt');
+					}
+
+					editor.on( 'submitUnsuccessful.keyTable', function () {
+						that._focus( editCell, null, false );
 					} );
 
 					// Restore full key navigation on close
 					editor.one( 'close', function () {
 						dt.keys.enable( true );
 						dt.off( 'key-blur.editor' );
+						editor.off( '.keyTable' );
+						$( dt.table().container() ).removeClass('dtk-focus-alt');
 					} );
 				} )
 				.one( 'cancelOpen.keyTable', function () {
 					// `preOpen` can cancel the display of the form, so it
 					// might be that the open event handler isn't needed
-					editor.off( 'open.keyTable' );
+					editor.off( '.keyTable' );
 				} )
-				.inline( that.s.lastFocus.cell.index() );
+				.inline( editCell.index() );
 		};
 
 		// Editor 1.7 listens for `return` on keyup, so if return is the trigger
 		// key, we need to wait for `keyup` otherwise Editor would just submit
 		// the content triggered by this keypress.
 		if ( key === 13 ) {
+			hardEdit = true;
+
 			$(document).one( 'keyup', function () { // immediately removed
 				editInline();
 			} );
@@ -580,6 +610,11 @@ $.extend( KeyTable.prototype, {
 				.rows( { filter: 'applied', order: 'applied' } )
 				.indexes()
 				.indexOf( index.row );
+			
+			// Don't focus rows that were filtered out.
+			if ( row < 0 ) {
+				return;
+			}
 
 			// For server-side processing normalise the row by adding the start
 			// point, since `rows().indexes()` includes only rows that are
@@ -1016,21 +1051,8 @@ KeyTable.defaults = {
 	editor: null,
 
 	/**
-	 * Option that defines what KeyTable's behaviour will be when used with
-	 * Editor's inline editing. Can be `navigation-only` or `tab-only`.
-	 * @type {String}
-	 */
-	editorKeys: 'navigation-only',
-
-	/**
-	 * Set if Editor should automatically select the text in the input
-	 * @type {Boolean}
-	 */
-	editAutoSelect: true,
-
-	/**
-	 * Control if editing should be activated immediately upon focus
-	 * @type {Boolean}
+	 * Trigger editing immediately on focus
+	 * @type {boolean}
 	 */
 	editOnFocus: false,
 
@@ -1056,7 +1078,7 @@ KeyTable.defaults = {
 
 
 
-KeyTable.version = "2.4.1";
+KeyTable.version = "2.5.0";
 
 
 $.fn.dataTable.KeyTable = KeyTable;
