@@ -70,31 +70,13 @@
                     <!-- .top-bar-item -->
           <div class="top-bar-item px-2 d-md-none d-lg-none d-xl-none">
             <!-- toggle menu -->
-            <button class="hamburger hamburger-squeeze" type="button" data-toggle="aside" aria-label="Menu" aria-controls="navigation">
-              <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-              </span>
-            </button>
+            <a href="/">
+              <img src="{% static '/looperassets/images/brand-inverse.png' %}" height="32" alt="">
+            </a>
           </div>
         </div>
 
 
-          <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-
-              <button class="btn-account d-none d-md-flex" type="button" aria-haspopup="true" aria-expanded="false">
-
-                <a href="{% url 'accounts:log_in' %}">
-                  <span class="user-avatar">
-                    <img src="{% static '/looperassets/images/avatars/team4.jpg' %} " alt="">
-                  </span>
-
-                </a>
-
-            </button>
-
-              <!-- /.dropdown-menu -->
-            <!-- /.btn-account -->
-          </div>
           <!-- /.top-bar-item -->
         </div>
         <!-- /.top-bar-list -->
