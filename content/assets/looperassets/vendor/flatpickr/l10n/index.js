@@ -1,4 +1,4 @@
-/* flatpickr v4.5.2, @license MIT */
+/* flatpickr v4.5.0, @license MIT */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -584,31 +584,6 @@
     var fp$p = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
-    var Khmer = {
-      weekdays: {
-        shorthand: ["អាទិត្យ", "ចន្ទ", "អង្គារ", "ពុធ", "ព្រហស.", "សុក្រ", "សៅរ៍"],
-        longhand: ["អាទិត្យ", "ចន្ទ", "អង្គារ", "ពុធ", "ព្រហស្បតិ៍", "សុក្រ", "សៅរ៍"]
-      },
-      months: {
-        shorthand: ["មករា", "កុម្ភះ", "មីនា", "មេសា", "ឧសភា", "មិថុនា", "កក្កដា", "សីហា", "កញ្ញា", "តុលា", "វិច្ឆិកា", "ធ្នូ"],
-        longhand: ["មករា", "កុម្ភះ", "មីនា", "មេសា", "ឧសភា", "មិថុនា", "កក្កដា", "សីហា", "កញ្ញា", "តុលា", "វិច្ឆិកា", "ធ្នូ"]
-      },
-      ordinal: function ordinal() {
-        return "";
-      },
-      firstDayOfWeek: 1,
-      rangeSeparator: " ដល់ ",
-      weekAbbreviation: "សប្តាហ៍",
-      scrollTitle: "រំកិលដើម្បីបង្កើន",
-      toggleTitle: "ចុចដើម្បីផ្លាស់ប្ដូរ",
-      yearAriaLabel: "ឆ្នាំ"
-    };
-    fp$p.l10ns.km = Khmer;
-    fp$p.l10ns;
-
-    var fp$q = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
-      l10ns: {}
-    };
     var Kazakh = {
       weekdays: {
         shorthand: ["Жс", "Дс", "Сc", "Ср", "Бс", "Жм", "Сб"],
@@ -629,10 +604,10 @@
       amPM: ["ТД", "ТК"],
       yearAriaLabel: "Жыл"
     };
-    fp$q.l10ns.kz = Kazakh;
-    fp$q.l10ns;
+    fp$p.l10ns.kz = Kazakh;
+    fp$p.l10ns;
 
-    var fp$r = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$q = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Lithuanian = {
@@ -652,10 +627,10 @@
       scrollTitle: "Keisti laiką pelės rateliu",
       toggleTitle: "Perjungti laiko formatą"
     };
-    fp$r.l10ns.lt = Lithuanian;
-    fp$r.l10ns;
+    fp$q.l10ns.lt = Lithuanian;
+    fp$q.l10ns;
 
-    var fp$s = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$r = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Latvian = {
@@ -670,10 +645,10 @@
       },
       rangeSeparator: " līdz "
     };
-    fp$s.l10ns.lv = Latvian;
-    fp$s.l10ns;
+    fp$r.l10ns.lv = Latvian;
+    fp$r.l10ns;
 
-    var fp$t = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$s = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Macedonian = {
@@ -689,10 +664,10 @@
       weekAbbreviation: "Нед.",
       rangeSeparator: " до "
     };
-    fp$t.l10ns.mk = Macedonian;
-    fp$t.l10ns;
+    fp$s.l10ns.mk = Macedonian;
+    fp$s.l10ns;
 
-    var fp$u = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$t = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Mongolian = {
@@ -707,10 +682,10 @@
       },
       rangeSeparator: "-с "
     };
-    fp$u.l10ns.mn = Mongolian;
-    fp$u.l10ns;
+    fp$t.l10ns.mn = Mongolian;
+    fp$t.l10ns;
 
-    var fp$v = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$u = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Malaysian = {
@@ -727,9 +702,9 @@
         return "";
       }
     };
-    fp$v.l10ns;
+    fp$u.l10ns;
 
-    var fp$w = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$v = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Burmese = {
@@ -746,10 +721,10 @@
         return "";
       }
     };
-    fp$w.l10ns.my = Burmese;
-    fp$w.l10ns;
+    fp$v.l10ns.my = Burmese;
+    fp$v.l10ns;
 
-    var fp$x = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$w = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Dutch = {
@@ -771,10 +746,10 @@
         return "de";
       }
     };
-    fp$x.l10ns.nl = Dutch;
-    fp$x.l10ns;
+    fp$w.l10ns.nl = Dutch;
+    fp$w.l10ns;
 
-    var fp$y = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$x = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Norwegian = {
@@ -795,10 +770,10 @@
         return ".";
       }
     };
-    fp$y.l10ns.no = Norwegian;
-    fp$y.l10ns;
+    fp$x.l10ns.no = Norwegian;
+    fp$x.l10ns;
 
-    var fp$z = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$y = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Punjabi = {
@@ -811,10 +786,10 @@
         longhand: ["ਜਨਵਰੀ", "ਫ਼ਰਵਰੀ", "ਮਾਰਚ", "ਅਪ੍ਰੈਲ", "ਮਈ", "ਜੂਨ", "ਜੁਲਾਈ", "ਅਗਸਤ", "ਸਤੰਬਰ", "ਅਕਤੂਬਰ", "ਨਵੰਬਰ", "ਦਸੰਬਰ"]
       }
     };
-    fp$z.l10ns.pa = Punjabi;
-    fp$z.l10ns;
+    fp$y.l10ns.pa = Punjabi;
+    fp$y.l10ns;
 
-    var fp$A = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$z = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Polish = {
@@ -835,10 +810,10 @@
         return ".";
       }
     };
-    fp$A.l10ns.pl = Polish;
-    fp$A.l10ns;
+    fp$z.l10ns.pl = Polish;
+    fp$z.l10ns;
 
-    var fp$B = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$A = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Portuguese = {
@@ -852,10 +827,10 @@
       },
       rangeSeparator: " até "
     };
-    fp$B.l10ns.pt = Portuguese;
-    fp$B.l10ns;
+    fp$A.l10ns.pt = Portuguese;
+    fp$A.l10ns;
 
-    var fp$C = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$B = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Romanian = {
@@ -872,10 +847,10 @@
         return "";
       }
     };
-    fp$C.l10ns.ro = Romanian;
-    fp$C.l10ns;
+    fp$B.l10ns.ro = Romanian;
+    fp$B.l10ns;
 
-    var fp$D = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$C = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Russian = {
@@ -898,10 +873,10 @@
       amPM: ["ДП", "ПП"],
       yearAriaLabel: "Год"
     };
-    fp$D.l10ns.ru = Russian;
-    fp$D.l10ns;
+    fp$C.l10ns.ru = Russian;
+    fp$C.l10ns;
 
-    var fp$E = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$D = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Sinhala = {
@@ -914,10 +889,10 @@
         longhand: ["ජනවාරි", "පෙබරවාරි", "මාර්තු", "අප්‍රේල්", "මැයි", "ජුනි", "ජූලි", "අගෝස්තු", "සැප්තැම්බර්", "ඔක්තෝබර්", "නොවැම්බර්", "දෙසැම්බර්"]
       }
     };
-    fp$E.l10ns.si = Sinhala;
-    fp$E.l10ns;
+    fp$D.l10ns.si = Sinhala;
+    fp$D.l10ns;
 
-    var fp$F = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$E = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Slovak = {
@@ -935,10 +910,10 @@
         return ".";
       }
     };
-    fp$F.l10ns.sk = Slovak;
-    fp$F.l10ns;
+    fp$E.l10ns.sk = Slovak;
+    fp$E.l10ns;
 
-    var fp$G = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$F = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Slovenian = {
@@ -956,10 +931,10 @@
         return ".";
       }
     };
-    fp$G.l10ns.sl = Slovenian;
-    fp$G.l10ns;
+    fp$F.l10ns.sl = Slovenian;
+    fp$F.l10ns;
 
-    var fp$H = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$G = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Albanian = {
@@ -972,10 +947,10 @@
         longhand: ["Janar", "Shkurt", "Mars", "Prill", "Maj", "Qershor", "Korrik", "Gusht", "Shtator", "Tetor", "Nëntor", "Dhjetor"]
       }
     };
-    fp$H.l10ns.sq = Albanian;
-    fp$H.l10ns;
+    fp$G.l10ns.sq = Albanian;
+    fp$G.l10ns;
 
-    var fp$I = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$H = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Serbian = {
@@ -991,10 +966,10 @@
       weekAbbreviation: "Ned.",
       rangeSeparator: " do "
     };
-    fp$I.l10ns.sr = Serbian;
-    fp$I.l10ns;
+    fp$H.l10ns.sr = Serbian;
+    fp$H.l10ns;
 
-    var fp$J = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$I = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Swedish = {
@@ -1012,10 +987,10 @@
         return ".";
       }
     };
-    fp$J.l10ns.sv = Swedish;
-    fp$J.l10ns;
+    fp$I.l10ns.sv = Swedish;
+    fp$I.l10ns;
 
-    var fp$K = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$J = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Thai = {
@@ -1035,10 +1010,10 @@
         return "";
       }
     };
-    fp$K.l10ns.th = Thai;
-    fp$K.l10ns;
+    fp$J.l10ns.th = Thai;
+    fp$J.l10ns;
 
-    var fp$L = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$K = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Turkish = {
@@ -1060,10 +1035,10 @@
       toggleTitle: "Aç/Kapa",
       amPM: ["ÖÖ", "ÖS"]
     };
-    fp$L.l10ns.tr = Turkish;
-    fp$L.l10ns;
+    fp$K.l10ns.tr = Turkish;
+    fp$K.l10ns;
 
-    var fp$M = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$L = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Ukrainian = {
@@ -1077,10 +1052,10 @@
         longhand: ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"]
       }
     };
-    fp$M.l10ns.uk = Ukrainian;
-    fp$M.l10ns;
+    fp$L.l10ns.uk = Ukrainian;
+    fp$L.l10ns;
 
-    var fp$N = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$M = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Vietnamese = {
@@ -1094,10 +1069,10 @@
       },
       firstDayOfWeek: 1
     };
-    fp$N.l10ns.vn = Vietnamese;
-    fp$N.l10ns;
+    fp$M.l10ns.vn = Vietnamese;
+    fp$M.l10ns;
 
-    var fp$O = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
+    var fp$N = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
       l10ns: {}
     };
     var Mandarin = {
@@ -1114,8 +1089,8 @@
       scrollTitle: "滚动切换",
       toggleTitle: "点击切换 12/24 小时时制"
     };
-    fp$O.l10ns.zh = Mandarin;
-    fp$O.l10ns;
+    fp$N.l10ns.zh = Mandarin;
+    fp$N.l10ns;
 
     var l10n = {
       ar: Arabic,
@@ -1145,7 +1120,6 @@
       it: Italian,
       ja: Japanese,
       ko: Korean,
-      km: Khmer,
       kz: Kazakh,
       lt: Lithuanian,
       lv: Latvian,

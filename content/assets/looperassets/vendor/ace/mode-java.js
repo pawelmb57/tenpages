@@ -180,8 +180,7 @@ var JavaScriptHighlightRules = function(options) {
                 next  : "property"
             }, {
                 token : "storage.type",
-                regex : /=>/,
-                next  : "start"
+                regex : /=>/
             }, {
                 token : "keyword.operator",
                 regex : /--|\+\+|\.{3}|===|==|=|!=|!==|<+=?|>+=?|!|&&|\|\||\?:|[!$%&*+\-~\/^]=?/,
@@ -873,36 +872,6 @@ var JavaHighlightRules = function() {
                 token : "constant.language.boolean",
                 regex : "(?:true|false)\\b"
             }, {
-                regex: "(open(?:\\s+))?module(?=\\s*\\w)",
-                token: "keyword",
-                next: [{
-                    regex: "{",
-                    token: "paren.lparen",
-                    next: [{
-                        regex: "}",
-                        token: "paren.rparen",
-                        next: "start"
-                    }, {
-                        regex: "\\b(requires|transitive|exports|opens|to|uses|provides|with)\\b",
-                        token: "keyword" 
-                    }]
-                }, {
-                    token : "text",
-                    regex : "\\s+"
-                }, {
-                    token : "identifier",
-                    regex : "\\w+"
-                }, {
-                    token : "punctuation.operator",
-                    regex : "."
-                }, {
-                    token : "text",
-                    regex : "\\s+"
-                }, {
-                    regex: "", // exit if there is anything else
-                    next: "start"
-                }]
-            }, {
                 token : keywordMapper,
                 regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
             }, {
@@ -930,10 +899,8 @@ var JavaHighlightRules = function() {
         ]
     };
 
-    
     this.embedRules(DocCommentHighlightRules, "doc-",
         [ DocCommentHighlightRules.getEndRule("start") ]);
-    this.normalizeRules();
 };
 
 oop.inherits(JavaHighlightRules, TextHighlightRules);

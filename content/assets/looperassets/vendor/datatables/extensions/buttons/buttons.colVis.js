@@ -108,7 +108,6 @@ $.extend( DataTable.ext.buttons, {
 		},
 		init: function ( dt, button, conf ) {
 			var that = this;
-			button.attr( 'data-cv-idx', conf.columns );
 
 			dt
 				.on( 'column-visibility.dt'+conf.namespace, function (e, settings) {
@@ -123,17 +122,8 @@ $.extend( DataTable.ext.buttons, {
 						return;
 					}
 
-					conf.columns = $.inArray( conf.columns, details.mapping );
-					button.attr( 'data-cv-idx', conf.columns );
-
-					// Reorder buttons for new table order
-					button
-						.parent()
-						.children('[data-cv-idx]')
-						.sort( function (a, b) {
-							return (a.getAttribute('data-cv-idx')*1) - (b.getAttribute('data-cv-idx')*1);
-						} )
-						.appendTo(button.parent());
+					that.text( conf._columnText( dt, conf ) );
+					that.active( dt.column( conf.columns ).visible() );
 				} );
 
 			this.active( dt.column( conf.columns ).visible() );

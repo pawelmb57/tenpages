@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /*! DataTables Bootstrap 3 integration
  * ©2011-2015 SpryMedia Ltd - datatables.net/license
@@ -20,7 +20,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     define(['jquery', 'datatables.net'], function ($) {
       return factory($, window, document);
     });
-  } else if ((typeof exports === "undefined" ? "undefined" : _typeof(exports)) === 'object') {
+  } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
     // CommonJS
     module.exports = function (root, $) {
       if (!root) {
@@ -44,14 +44,14 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   'use strict';
 
   var DataTable = $.fn.dataTable;
-  /* Set the defaults for DataTables initialisation */
 
+  /* Set the defaults for DataTables initialisation */
   $.extend(true, DataTable.defaults, {
     dom: '<\'text-muted\'i>' + '<\'table-responsive\'tr>' + '<\'mt-4\'p>',
     renderer: 'bootstrap'
   });
-  /* Default class modification */
 
+  /* Default class modification */
   $.extend(DataTable.ext.classes, {
     sWrapper: 'dataTables_wrapper dt-bootstrap4',
     sFilterInput: 'form-control',
@@ -59,23 +59,24 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     sProcessing: 'dataTables_processing card',
     sPageButton: 'paginate_button page-item'
   });
-  /* Bootstrap paging button renderer */
 
+  /* Bootstrap paging button renderer */
   DataTable.ext.renderer.pageButton.bootstrap = function (settings, host, idx, buttons, page, pages) {
     var api = new DataTable.Api(settings);
     var classes = settings.oClasses;
     var lang = settings.oLanguage.oPaginate;
     var aria = settings.oLanguage.oAria.paginate || {};
-    var btnDisplay,
-        btnClass,
+    var btnDisplay = void 0,
+        btnClass = void 0,
         counter = 0;
 
     var attach = function attach(container, buttons) {
-      var i, ien, node, button;
-
+      var i = void 0,
+          ien = void 0,
+          node = void 0,
+          button = void 0;
       var clickHandler = function clickHandler(e) {
         e.preventDefault();
-
         if (!$(e.currentTarget).hasClass('disabled') && api.page() != e.data.action) {
           api.page(e.data.action).draw('page');
         }
@@ -135,19 +136,17 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
               'class': 'page-link'
             }).html(btnDisplay)).appendTo(container);
 
-            settings.oApi._fnBindAction(node, {
-              action: button
-            }, clickHandler);
+            settings.oApi._fnBindAction(node, { action: button }, clickHandler);
 
             counter++;
           }
         }
       }
-    }; // IE9 throws an 'unknown error' if document.activeElement is used
+    };
+
+    // IE9 throws an 'unknown error' if document.activeElement is used
     // inside an iframe or frame.
-
-
-    var activeEl;
+    var activeEl = void 0;
 
     try {
       // Because this approach is destroying and recreating the paging

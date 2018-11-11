@@ -374,8 +374,7 @@ var JavaScriptHighlightRules = function(options) {
                 next  : "property"
             }, {
                 token : "storage.type",
-                regex : /=>/,
-                next  : "start"
+                regex : /=>/
             }, {
                 token : "keyword.operator",
                 regex : /--|\+\+|\.{3}|===|==|=|!=|!==|<+=?|>+=?|!|&&|\|\||\?:|[!$%&*+\-~\/^]=?/,
@@ -4286,8 +4285,6 @@ var functionMap = {
         "int func_num_args(void)",
         "Get the number of arguments that were passed to the function"
     ],
-    "function ": ["", ""],
-    "foreach ": ["", ""],
     "function_exists": [
         "bool function_exists(string function_name)",
         "Checks if the function exists"
@@ -11432,12 +11429,12 @@ var PhpCompletions = function() {
             caption: 'php',
             value: 'php',
             meta: "php tag",
-            score: 1000000
+            score: Number.MAX_VALUE
         }, {
             caption: '=',
             value: '=',
             meta: "php tag",
-            score: 1000000
+            score: Number.MAX_VALUE
         }];
     };
 
@@ -11448,7 +11445,7 @@ var PhpCompletions = function() {
                 caption: func,
                 snippet: func + '($0)',
                 meta: "php function",
-                score: 1000000,
+                score: Number.MAX_VALUE,
                 docHTML: functionMap[func][1]
             };
         });
@@ -11461,7 +11458,7 @@ var PhpCompletions = function() {
                 caption: variable,
                 value: variable,
                 meta: "php variable",
-                score: 1000000
+                score: Number.MAX_VALUE
             };
         });
     };
@@ -11483,7 +11480,7 @@ var PhpCompletions = function() {
                 caption: key,
                 value: key,
                 meta: "php array key",
-                score: 1000000
+                score: Number.MAX_VALUE
             };
         });
     };
@@ -11864,7 +11861,7 @@ var CssCompletions = function() {
                 caption: property,
                 snippet: property + ': $0;',
                 meta: "property",
-                score: 1000000
+                score: Number.MAX_VALUE
             };
         });
     };
@@ -11884,7 +11881,7 @@ var CssCompletions = function() {
                 caption: value,
                 snippet: value,
                 meta: "property value",
-                score: 1000000
+                score: Number.MAX_VALUE
             };
         });
     };
@@ -12817,7 +12814,7 @@ var HtmlCompletions = function() {
             return {
                 value: element,
                 meta: "tag",
-                score: 1000000
+                score: Number.MAX_VALUE
             };
         });
     };
@@ -12835,7 +12832,7 @@ var HtmlCompletions = function() {
                 caption: attribute,
                 snippet: attribute + '="$0"',
                 meta: "attribute",
-                score: 1000000
+                score: Number.MAX_VALUE
             };
         });
     };
@@ -12855,7 +12852,7 @@ var HtmlCompletions = function() {
                 caption: value,
                 snippet: value,
                 meta: "attribute value",
-                score: 1000000
+                score: Number.MAX_VALUE
             };
         });
     };
@@ -12868,7 +12865,7 @@ var HtmlCompletions = function() {
                 caption: value,
                 snippet: value,
                 meta: "html entity",
-                score: 1000000
+                score: Number.MAX_VALUE
             };
         });
     };

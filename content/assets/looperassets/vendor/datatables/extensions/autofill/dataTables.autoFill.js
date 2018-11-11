@@ -1,11 +1,11 @@
-/*! AutoFill 2.3.2
+/*! AutoFill 2.3.1
  * ©2008-2018 SpryMedia Ltd - datatables.net/license
  */
 
 /**
  * @summary     AutoFill
  * @description Add Excel like click and drag auto-fill options to DataTables
- * @version     2.3.2
+ * @version     2.3.1
  * @file        dataTables.autoFill.js
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
@@ -367,8 +367,7 @@ $.extend( AutoFill.prototype, {
 				start.column
 		};
 		var colIndx = dt.column.index( 'toData', end.column );
-		var endRow =  dt.row( ':eq('+end.row+')', { page: 'current' } ); // Workaround for M581
-		var endCell = $( dt.cell( endRow.index(), colIndx ).node() );
+		var endCell = $( dt.cell( ':eq('+end.row+')', colIndx ).node() );
 
 		// Be sure that is a DataTables controlled cell
 		if ( ! dt.cell( endCell ).any() ) {
@@ -732,18 +731,14 @@ $.extend( AutoFill.prototype, {
 			var editor = dt.editor();
 
 			editor
-				.on( 'submitSuccess.dtaf', function () {
-					editor.off( '.dtaf');
-
-					setTimeout( function () {
-						that._mouseup( e );
-					}, 100 );
+				.on( 'submitSuccess.kt', function () {
+					editor.off( '.kt');
+					that._mouseup( e );
 				} )
-				.on( 'submitComplete.dtaf preSubmitCancelled.dtaf', function () {
-					editor.off( '.dtaf');
+				.on( 'submitComplete.kt preSubmitCancelled.kt', function () {
+					editor.off( '.kt');
 				} );
-
-			// Make the current input submit
+			
 			editor.submit();
 
 			return;
@@ -762,8 +757,7 @@ $.extend( AutoFill.prototype, {
 		for ( var rowIdx=0 ; rowIdx<rows.length ; rowIdx++ ) {
 			selected.push(
 				$.map( columns, function (column) {
-					var row = dt.row( ':eq('+rows[rowIdx]+')', {page:'current'} ); // Workaround for M581
-					var cell = dt.cell( row.index(), column+':visible' );
+					var cell = dt.cell( ':eq('+rows[rowIdx]+')', column+':visible', {page:'current'} );
 					var data = cell.data();
 					var cellIndex = cell.index();
 					var editField = dtColumns[ cellIndex.column ].editField;
@@ -1095,7 +1089,7 @@ AutoFill.actions = {
  * @static
  * @type      String
  */
-AutoFill.version = '2.3.2';
+AutoFill.version = '2.3.1';
 
 
 /**

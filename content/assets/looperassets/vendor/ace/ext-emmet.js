@@ -1127,7 +1127,7 @@ exports.runEmmetCommand = function runEmmetCommand(editor) {
         var result = actions.run(this.action, editorProxy);
     } catch(e) {
         if (!emmet) {
-            exports.load(runEmmetCommand.bind(this, editor));
+            load(runEmmetCommand.bind(this, editor));
             return true;
         }
         editor._signal("changeStatus", typeof e == "string" ? e : e.message);
@@ -1185,11 +1185,11 @@ var onChangeMode = function(e, target) {
     if (e.enableEmmet === false)
         enabled = false;
     if (enabled)
-        exports.load();
+        load();
     exports.updateCommands(editor, enabled);
 };
 
-exports.load = function(cb) {
+var load = function(cb) {
     if (typeof emmetPath == "string") {
         require("ace/config").loadModule(emmetPath, function() {
             emmetPath = null;

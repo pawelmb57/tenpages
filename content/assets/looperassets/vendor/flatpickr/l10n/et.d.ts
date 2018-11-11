@@ -30,7 +30,6 @@ declare const _default: {
     it?: CustomLocale | undefined;
     ja?: CustomLocale | undefined;
     ko?: CustomLocale | undefined;
-    km?: CustomLocale | undefined;
     kz?: CustomLocale | undefined;
     lt?: CustomLocale | undefined;
     lv?: CustomLocale | undefined;
@@ -55,6 +54,24 @@ declare const _default: {
     vn?: CustomLocale | undefined;
     zh?: CustomLocale | undefined;
 } & {
-    default: import("../types/locale").Locale;
+    default: {
+        weekdays: {
+            shorthand: [string, string, string, string, string, string, string];
+            longhand: [string, string, string, string, string, string, string];
+        };
+        months: {
+            shorthand: [string, string, string, string, string, string, string, string, string, string, string, string];
+            longhand: [string, string, string, string, string, string, string, string, string, string, string, string];
+        };
+        daysInMonth: [number, number, number, number, number, number, number, number, number, number, number, number];
+        firstDayOfWeek: number;
+        ordinal: (nth: number) => string;
+        rangeSeparator: string;
+        weekAbbreviation: string;
+        scrollTitle: string;
+        toggleTitle: string;
+        amPM: [string, string];
+        yearAriaLabel: string;
+    };
 };
 export default _default;

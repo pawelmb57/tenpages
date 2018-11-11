@@ -376,7 +376,7 @@ var CssCompletions = function() {
                 caption: property,
                 snippet: property + ': $0;',
                 meta: "property",
-                score: 1000000
+                score: Number.MAX_VALUE
             };
         });
     };
@@ -396,7 +396,7 @@ var CssCompletions = function() {
                 caption: value,
                 snippet: value,
                 meta: "property value",
-                score: 1000000
+                score: Number.MAX_VALUE
             };
         });
     };
