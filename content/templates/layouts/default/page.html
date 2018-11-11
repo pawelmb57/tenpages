@@ -60,29 +60,7 @@
 
 
       <!-- form -->
-      <form method="post" class="auth-form" action="">
-        {% csrf_token %}
 
-
-        <div class="mb-4">
-          <div class="mb-3">
-            <img class="rounded" src="{% static '/looperassets/apple-touch-icon.png' %}" alt="" height="72"> </div>
-          <h1 class="h3"> Sign In </h1>
-        </div>
-        <p class="text-left mb-4"> Don't have a account?
-          <a href="/accounts/sign-up/">Create One</a>
-        </p>
-
-        {% bootstrap_form form %}
-
-        <button class="btn btn-primary">{% trans 'Log in' %}</button>
-
-
-
-
-
-
-      </form>
 
       <section id="announcement" class="auth-announcement" style="background-image: url({% static '/looperassets/images/illustration/img-3.png' %});">
         <div class="announcement-body">
