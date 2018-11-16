@@ -173,43 +173,18 @@
                   <span class="menu-text">Main</span>
                 </a>
               </li>
-              <!-- /.menu-item -->
-              <!-- .menu-item -->
-              <li class="menu-item has-active has-child">
-                <a href="#" class="menu-link">
-                  <span class="menu-icon oi oi-browser"></span>
-                  <span class="menu-text">Layouts</span>
-                  <!-- <span class="badge badge-success">20+</span> -->
+              <li class="menu-item">
+                <a href="{% url 'new_book' %}" class="menu-link">
+                  <span class="menu-icon oi oi-dashboard"></span>
+                  <span class="menu-text">Add a Book</span>
                 </a>
-                <!-- child menu -->
-                <ul class="menu">
-                  <li class="menu-item has-active">
-                    <a href="layout-blank.html" class="menu-link">Blank Page</a>
-                  </li>
-                </ul>
-                <!-- /child menu -->
               </li>
-              <!-- /.menu-item -->
-              <!-- .menu-header -->
-              <li class="menu-header">Interfaces </li>
-              <!-- /.menu-header -->
-              <!-- .menu-item -->
-              <li class="menu-item has-child">
-                <a href="#" class="menu-link">
-                  <span class="menu-icon oi oi-puzzle-piece"></span>
-                  <span class="menu-text">Components</span>
-                  <!-- <span class="badge badge-warning">New</span> -->
+              <li class="menu-item">
+                <a href="{% url 'log_pages' %}" class="menu-link">
+                  <span class="menu-icon oi oi-dashboard"></span>
+                  <span class="menu-text">Log or Edit Pages</span>
                 </a>
-                <!-- child menu -->
-                <ul class="menu">
-                  <li class="menu-item">
-                    <a href="component-general.html" class="menu-link">General</a>
-                  </li>
-                </ul>
-                <!-- /child menu -->
               </li>
-              <!-- /.menu-item -->
-
           </nav>
           <!-- /.stacked-menu -->
         </section>

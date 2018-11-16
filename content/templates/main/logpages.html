@@ -1,0 +1,52 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+
+    <h1>Log Pages</h1>
+
+    <form method="POST" class="post-form">{% csrf_token %}
+       {{ form.as_p }}
+       <button type="submit" class="save btn btn-default">Save</button>
+   </form>
+
+
+
+
+
+    <table>
+      <tr>
+        <th>id</th>
+        <th>username</th>
+        <th>book_title_id</th>
+        <th>log_pages</th>
+        <th>log_date</th>
+     </tr>
+     {% for i in logpages %}
+         <tr>
+           <td>{{ i.id }}</td>
+           <td>{{ user.get_username }}</td>
+           <td>{{ i.books.book_title }}</td>
+           <td>{{ i.log_pages }}</td>
+           <td>{{ i.log_date }}</td>
+         </tr>
+   {% endfor %}
+   </table>
+
+
+
+
+    <br> <br> <br> <br> <br>
+    <br> <br> <br> <br> <br>
+
+
+
+
+
+
+
+
+
+{% endblock %}

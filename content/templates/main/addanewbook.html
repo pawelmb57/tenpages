@@ -1,0 +1,68 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+
+    <h1>Add a book</h1>
+
+    <br><br>
+
+    <form method="POST" class="post-form">{% csrf_token %}
+       {{ form.as_p }}
+       <button type="submit" class="save btn btn-default">Save</button>
+   </form>
+
+
+
+
+   <br> <br> <br> <br> <br>
+
+   <table>
+     <tr>
+       <th>id</th>
+       <th>created</th>
+       <th>last_updated</th>
+       <th>book_title</th>
+       <th>book_total_pages</th>
+     </tr>
+     {% for item in allBooks %}
+     <tr>
+       <td>{{ item.id }}</td>
+       <td>{{ item.created }}</td>
+       <td>{{ item.last_updated }}</td>
+       <td>{{ item.book_title }}</td>
+       <td>{{ item.book_total_pages }}</td>
+     </tr>
+     {% endfor %}
+   </table>
+
+
+
+
+   <br><br><br>
+
+
+   <table>
+     <tr>
+       <th>User</th>
+       <th>Book Title</th>
+       <th>Book Pages</th>
+    </tr>
+    {% for item in userbooks %}
+        <tr>
+          <td>{{ user.get_username }}</td>
+          <td>{{ item.books.book_title }}</td>
+          <td>{{ item.books.book_total_pages }}</td>
+        </tr>
+  {% endfor %}
+  </table>
+
+
+
+
+
+
+
+{% endblock %}

@@ -17,7 +17,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '10pgs.com',
     'www.10pgs.com',
-    'tenpages-testing.herokuapp.com',
+    'tenpages-production.herokuapp.com',
 ]
 
 
