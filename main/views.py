@@ -81,7 +81,8 @@ def log_pages(request):
 
 
     # allBooks = Books.objects.all()
-    logpages = LogPages.objects.filter(user=request.user).select_related()
+    logpages = LogPages.objects.select_related()
+    # logpages = LogPages.objects.filter(user=request.user).select_related()
 
     # userlogbooks = list(chain(allBooks, logpages))
 
@@ -93,6 +94,14 @@ def log_pages(request):
         'form': form,
     })
 
+
+def log_dash(request):
+
+    logdash = LogPages.objects.select_related()
+
+    return render(request, 'main/logdash.html', {
+        'logdash': logdash,
+    })
 
 
 

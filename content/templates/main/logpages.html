@@ -20,7 +20,7 @@
       <tr>
         <th>id</th>
         <th>username</th>
-        <th>book_title_id</th>
+        <th>book_title</th>
         <th>log_pages</th>
         <th>log_date</th>
      </tr>
@@ -28,7 +28,7 @@
          <tr>
            <td>{{ i.id }}</td>
            <td>{{ user.get_username }}</td>
-           <td>{{ i.books.book_title }}</td>
+           <td>{{ i.userbooks.books }}</td>
            <td>{{ i.log_pages }}</td>
            <td>{{ i.log_date }}</td>
          </tr>

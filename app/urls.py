@@ -3,7 +3,7 @@ from django.conf import settings
 from django.urls import path, include
 from django.conf.urls.static import static
 
-from main.views import IndexPageView, ChangeLanguageView, new_book, log_pages
+from main.views import IndexPageView, ChangeLanguageView, new_book, log_pages, log_dash
 
 
 urlpatterns = [
@@ -23,5 +23,6 @@ if settings.DEBUG:
 
 urlpatterns += [
     path('newbook/', new_book, name='new_book'),
-    path('logpages/', log_pages, name='log_pages')
+    path('logpages/', log_pages, name='log_pages'),
+    path('logdash/', log_dash, name='log_dash'),
 ]

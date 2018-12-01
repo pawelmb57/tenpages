@@ -1,0 +1,46 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+
+
+
+<header class="page-title-bar">
+ <div class="d-md-flex align-items-md-start">
+   <h1 class="page-title mr-sm-auto"> Reading Log Dashboard </h1><!-- .btn-toolbar -->
+ </div><!-- /title and toolbar -->
+</header><!-- /.page-title-bar -->
+<!-- .page-section -->
+<div class="page-section">
+ <!-- .card -->
+ <section class="card card-fluid">
+   <!-- .card-header -->
+
+   <!-- .card-body -->
+   <div class="card-body">
+
+     <table id="myTable" class="table">
+       <!-- thead -->
+       <thead>
+         <tr>
+           <th> Date </th>
+           <th> Book </th>
+           <th> Pages </th>
+           <th style="width:100px; min-width:100px;"> &nbsp; </th>
+         </tr>
+         {% for i in logdash %}
+             <tr>
+               <td>{{ i.log_date }}</td>
+               <td>{{ i.userbooks.books }}</td>
+               <td>{{ i.log_pages }}</td>
+             </tr>
+       {% endfor %}
+       </thead><!-- /thead -->
+     </table><!-- /.table -->
+   </div><!-- /.card-body -->
+ </section><!-- /.card -->
+
+
+{% endblock %}
