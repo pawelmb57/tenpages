@@ -1,1 +1,10 @@
 /* put your own styles to customize and override the theme */
+
+
+body {
+    background-color: white;
+}
+
+.aside-menu, .stacked-menu {
+  background-color: white;
+}
