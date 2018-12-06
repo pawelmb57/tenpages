@@ -46,5 +46,5 @@ class LogPages(models.Model):
     user =              models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
     # book_title =        models.ForeignKey(Books, on_delete=models.CASCADE, null=False, blank=False)
     userbooks =             models.ForeignKey(UserBooks, on_delete=models.CASCADE, null=True, related_name='logbooks')
-    log_date =          models.DateTimeField(auto_now_add=True, editable=True)
+    log_date =          models.DateTimeField()
     log_pages =         models.FloatField()

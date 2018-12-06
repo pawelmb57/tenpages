@@ -21,8 +21,29 @@ def IndexPageView(request):
     if not request.user.is_authenticated:
         return redirect('accounts:log_in')
 
-    return render(request, 'main/index.html', {
+    if request.method == "POST":
+        form = LogPagesForm(request.user, request.POST)
 
+        if form.is_valid():
+            log = form.save(commit=False)
+
+            log.user = request.user
+            log.Books = form.cleaned_data['userbooks']
+            log.log_pages = form.cleaned_data['log_pages']
+            log.log_date = form.cleaned_data['log_date']
+            log.save()
+
+            return redirect('log_pages')
+    else:
+        form = LogPagesForm(request.user)
+
+
+
+
+
+
+    return render(request, 'main/index.html', {
+        'form': form,
     })
 
 

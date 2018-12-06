@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    {% if request.user.is_authenticated %}
+    <!-- {% if request.user.is_authenticated %}
 
         {% trans 'Your username is' %} <b>{{ request.user.username }}</b>.
 
@@ -15,9 +15,106 @@
         {% trans 'You are a guest.' %}
 
     {% endif %}
+<br> -->
+
+
+<span class="section-header"> Log </span>
+
+<br>
+
+
+<form method="POST" class="post-form">{% csrf_token %}
+
+   {{ form.non_field_errors }}
+  <!-- <div class="fieldWrapper">
+      {{ form.log_date.errors }}
+      <label for="{{ form.log_date.id_for_label }}">Date</label><br>
+      {{ form.log_date }}
+  </div> -->
+  <div class="form-group row fieldWrapper">
+    {{ form.log_date.errors }}
+    <label for="{{ form.log_date.id_for_label }}" class="col-2 input-label">Date</label>
+    <div class="col-10">
+      <input class="form-control" type="date" id={{ form.log_date }}
+    </div>
+  </div>
+
+
+
+  <div class="form-group row fieldWrapper">
+      <label for="{{ form.userbooks.id_for_label }}" class="col-2 input-label">Book</label>
+      <select class="form-control col-10" id="{{ form.userbooks.value  }}">
+        {% for book in form.userbooks %}
+        <option value={{ book }}>{{ book }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+  <div class="form-group row fieldWrapper">
+    {{ form.log_pages.errors }}
+    <label for="{{ form.log_pages.id_for_label }}" class="col-2 input-label">Pages</label>
+    <div class="col-10">
+      {{ form.log_pages }}
+    </div>
+  </div>
 
 
 
 
 
+
+
+   <button type="submit" class="save btn btn-primary btn-lg fieldWrapper input-button-label">Log</button>
+</form>
+<!--
+<div class="form-group row">
+  <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+  <div class="col-10">
+    <input class="form-control" type="date" value="2011-11-19" id="example-datetime-local-input">
+  </div>
+</div>
+
+ -->
+<!--
+<div class="form-group row fieldWrapper">
+    {{ form.userbooks.errors }}
+    <label for="{{ form.userbooks.id_for_label }}" class="col-2 input-label">Book</label>
+    <div class="col-10">
+      {{ form.userbooks }}
+    </div>
+</div>
+
+  <div class="dropdown row fieldWrapper">
+    {{ form.userbooks.errors }}
+    <label for="{{ form.userbooks.id_for_label }}" class="col-2 input-label">Book</label>
+    <button class="btn btn-secondary dropdown-toggle col-10" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Book
+    </a>
+    <ul class="dropdown-menu col-10">
+      {% for book in form.userbooks %}
+        <l1>{{ book }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+ -->
+
+
+
+<!--
+<div class="dropdown fieldWrapper">
+        <label for="{{ form.userbooks.id_for_label }}">Book</label>
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Book
+        </button>
+        <div>
+            <ul class="dropdown-menu" role="menu">
+                {% for field in form.userbooks %}
+                    <li class="fieldWrapper">
+                        {{ field.errors }}
+                        {{ field.label_tag }} {{ field }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+</div> -->
 {% endblock %}

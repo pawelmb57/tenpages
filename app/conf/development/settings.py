@@ -35,6 +35,7 @@ INSTALLED_APPS = [
 
     # Vendor apps
     'bootstrap4',
+    'widget_tweaks',
 
     # Application apps
     'main',
