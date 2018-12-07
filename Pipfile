@@ -18,7 +18,12 @@ requests = "==2.19.1"
 "urllib3" = "==1.23"
 whitenoise = "==4.1"
 Django = "==2.1.2"
-django-autocomplete-light = "*"
+django-autocomplete-light = "==3.3.2"
+django-crispy-forms = "==1.7.2"
+django-widget-tweaks = "==1.4.3"
+pipenv = "==2018.6.25"
+virtualenv = "==16.1.0"
+virtualenv-clone = "==0.4.0"
 
 [dev-packages]
 

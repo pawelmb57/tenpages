@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "0565ac7cbbc62073323ce3ae558749d098bc61749ea2239a07717900f7e1044a"
+            "sha256": "515741aa1df542b2c72dd0265a7c8d57583ad89f7ded1d513d68a76cad3d8906"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -62,6 +62,14 @@
             "index": "pypi",
             "version": "==0.0.7"
         },
+        "django-crispy-forms": {
+            "hashes": [
+                "sha256:5952bab971110d0b86c278132dae0aa095beee8f723e625c3d3fa28888f1675f",
+                "sha256:705ededc554ad8736157c666681165fe22ead2dec0d5446d65fc9dd976a5a876"
+            ],
+            "index": "pypi",
+            "version": "==1.7.2"
+        },
         "django-heroku": {
             "hashes": [
                 "sha256:2bc690aab89eedbe01311752320a9a12e7548e3b0ed102681acc5736a41a4762",
@@ -76,6 +84,14 @@
             ],
             "index": "pypi",
             "version": "==2.5"
+        },
+        "django-widget-tweaks": {
+            "hashes": [
+                "sha256:a69cba6c8a6b98f0cf6eef0535f8212d635e19044ee4533d4d78df700c2e233f",
+                "sha256:bc645ef88307bc4ac269ee8ee9e572be814cd4a125c2bb6edb59ffcdc194982d"
+            ],
+            "index": "pypi",
+            "version": "==1.4.3"
         },
         "gunicorn": {
             "hashes": [
@@ -92,6 +108,15 @@
             ],
             "index": "pypi",
             "version": "==2.7"
+        },
+        "pipenv": {
+            "hashes": [
+                "sha256:28d6915ba58566f1192cda1a6674fe3c0c42cf76c5354c8e47deff94bcd1db5c",
+                "sha256:4cd6a7cad2336ef6b59bf071478deec67895e23363ea12e9d17c2dc3d9db15dc",
+                "sha256:7c76c2d538b34ebcacb614b09c60d7ba534557fd0ab1295e1fff16a366d337ea"
+            ],
+            "index": "pypi",
+            "version": "==2018.6.25"
         },
         "psycopg2": {
             "hashes": [
@@ -152,6 +177,22 @@
             ],
             "index": "pypi",
             "version": "==1.23"
+        },
+        "virtualenv": {
+            "hashes": [
+                "sha256:686176c23a538ecc56d27ed9d5217abd34644823d6391cbeb232f42bf722baad",
+                "sha256:f899fafcd92e1150f40c8215328be38ff24b519cd95357fa6e78e006c7638208"
+            ],
+            "index": "pypi",
+            "version": "==16.1.0"
+        },
+        "virtualenv-clone": {
+            "hashes": [
+                "sha256:06c5a8bc77f3ed0ad130a690e623e27e07b6599dbdbf83e089cc3a2c6b191da0",
+                "sha256:afce268508aa5596c90dda234abe345deebc401a57d287bcbd76baa140a1aa58"
+            ],
+            "index": "pypi",
+            "version": "==0.4.0"
         },
         "whitenoise": {
             "hashes": [
