@@ -108,6 +108,7 @@
                 </span>
               </button>
               <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'profile' user.username %}">{% trans 'Profile' %}</a>
 
                 {% if request.user.is_authenticated %}
 
@@ -156,6 +157,7 @@
           <!-- /.btn-account -->
           <!-- .dropdown-aside -->
           <div id="dropdown-aside" class="dropdown-aside collapse">
+            <a class="dropdown-item" href="{% url 'profile' user.username %}">{% trans 'Profile' %}</a>
             <!-- dropdown-items -->
             {% if request.user.is_authenticated %}
 
@@ -207,7 +209,12 @@
                   <span class="menu-text">Reading Log Dashboard</span>
                 </a>
               </li>
-
+              <li class="menu-item">
+                <a href="{% url 'activity' %}" class="menu-link">
+                  <span class="menu-icon oi oi-dashboard"></span>
+                  <span class="menu-text">Activity</span>
+                </a>
+              </li>
 
         </section>
         <!-- /.aside-menu -->
@@ -216,7 +223,7 @@
     </aside>
     <!-- /.app-aside -->
     <!-- .app-main -->
-    <main class="app-main w-75">
+    <main class="app-main">
       <!-- .wrapper -->
       <div class="wrapper">
         <!-- .page -->

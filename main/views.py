@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 from main.models import Books, UserBooks, LogPages
@@ -128,3 +129,20 @@ def log_dash(request):
 
 class ChangeLanguageView(TemplateView):
     template_name = 'main/change_language.html'
+
+
+
+def activity(request):
+
+    userList = User.objects.values()
+
+
+    return render(request, 'main/activity.html', {
+        'userList': userList,
+    })
+
+
+def profile(request, username):
+    return render(request, 'main/profile.html', {
+
+    })

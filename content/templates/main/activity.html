@@ -1,0 +1,38 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load i18n %}
+
+{% block content %}
+{% load widget_tweaks %}
+
+<span class="section-header"> Activity </span>
+
+<div class="col-10">
+
+
+  {{ userList }}
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">user</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in userList %}
+      <tr>
+        <td>{{ x.username }}</td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+
+
+</div>
+
+
+
+
+{% endblock %}

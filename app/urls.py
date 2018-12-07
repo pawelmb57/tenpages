@@ -1,9 +1,11 @@
-from django.contrib import admin
+from django.conf.urls import include, url
 from django.conf import settings
-from django.urls import path, include
 from django.conf.urls.static import static
+from django.urls import path
+from django.contrib import admin
 
-from main.views import IndexPageView, ChangeLanguageView, new_book, log_pages, log_dash
+
+from main.views import IndexPageView, ChangeLanguageView, new_book, log_pages, log_dash, activity, profile
 
 
 urlpatterns = [
@@ -25,4 +27,8 @@ urlpatterns += [
     path('newbook/', new_book, name='new_book'),
     path('logpages/', log_pages, name='log_pages'),
     path('logdash/', log_dash, name='log_dash'),
+    path('activity/', activity, name='activity'),
+
+    url(r'^(?P<username>[^/]+)/$', profile, name='profile'),
+
 ]
