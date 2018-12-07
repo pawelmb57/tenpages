@@ -1,0 +1,53 @@
+/* put your own styles to customize and override the theme */
+
+
+body {
+    background-color: white;
+}
+
+.aside-menu, .stacked-menu {
+  background-color: white;
+}
+
+.section-header {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 200%;
+}
+
+
+/* input {
+  height: 5%;
+  width: 100%;
+  font-size: 125%;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+} */
+
+.input-label {
+  font-size: 125%;
+  vertical-align: middle;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 2%;
+}
+
+.input-button-label {
+  height: 5%;
+}
+
+
+.app-main {
+  margin-left: 7% !important;
+  /* padding-right: 7% !important; */
+}
+
+.fieldWrapper {
+  font-size: 100%;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  margin-top: 2%;
+}
+
+button {
+  width: 100%;
+  margin-top: 4%;
+}
