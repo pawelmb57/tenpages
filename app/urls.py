@@ -27,8 +27,11 @@ urlpatterns += [
     path('newbook/', new_book, name='new_book'),
     path('logpages/', log_pages, name='log_pages'),
     path('logdash/', log_dash, name='log_dash'),
+
     path('activity/', activity, name='activity'),
 
     url(r'^(?P<username>[^/]+)/$', profile, name='profile'),
+
+
 
 ]

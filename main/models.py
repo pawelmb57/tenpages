@@ -10,11 +10,20 @@ from django.contrib.auth.models import User
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# class BookTitles(models.Model):
-#     name = models.CharField(max_length=100, unique=True)
-#
-#     def __str__(self):
-#         return self.name
+
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    def get_followers(self):
+        activities = Activity.objects.filter(to_user__pk=self.pk, activity_type=Activity.FOLLOW)
+        followers = []
+        for activity in activities:
+            followers.append(activity.from_user)
+        return followers
+
+
 
 
 class Books(models.Model):
@@ -28,6 +37,8 @@ class Books(models.Model):
 
     class Meta:
         ordering = ('-created',)
+        verbose_name = "Books"
+        verbose_name_plural = "Books"
 
     def __str__(self):
         return '{0}'.format(self.book_title)
@@ -37,6 +48,10 @@ class UserBooks(models.Model):
 
     user =              models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
     books =             models.ForeignKey(Books, on_delete=models.CASCADE, null=False, related_name='userbooks')
+
+    class Meta:
+        verbose_name = "UserBooks"
+        verbose_name_plural = "UserBooks"
 
     def __str__(self):
         return '{0}'.format(self.books.book_title)
@@ -48,3 +63,30 @@ class LogPages(models.Model):
     userbooks =             models.ForeignKey(UserBooks, on_delete=models.CASCADE, null=True, related_name='logbooks')
     log_date =          models.DateTimeField()
     log_pages =         models.FloatField()
+
+    class Meta:
+        verbose_name = "LogPages"
+        verbose_name_plural = "LogPages"
+
+
+
+
+
+
+class Activity(models.Model):
+    FOLLOW = 'F'
+    ACTIVITY_TYPES = (
+        (FOLLOW, 'Follow'),
+    )
+
+    from_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    to_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="+", null=True)
+    activity_type = models.CharField(max_length=1, choices=ACTIVITY_TYPES)
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Activity"
+        verbose_name_plural = "Activities"
+
+    def __unicode__(self):
+        return self.activity_type

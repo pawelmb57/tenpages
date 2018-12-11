@@ -24,7 +24,7 @@ body {
 } */
 
 .input-label {
-  font-size: 125%;
+  font-size: 100%;
   vertical-align: middle;
   font-family: 'Open Sans', sans-serif;
   margin-top: 2%;
@@ -36,7 +36,8 @@ body {
 
 
 .app-main {
-  margin-left: 7% !important;
+  margin-left: 3% !important;
+  margin-right: 3% !important;
   /* padding-right: 7% !important; */
 }
 

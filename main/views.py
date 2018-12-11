@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 
-from main.models import Books, UserBooks, LogPages
+from main.models import Books, UserBooks, LogPages, Activity, Profile
 from main.forms import AddBookForm, LogPagesForm#, AddBookUserForm
 
 from itertools import chain
@@ -143,6 +143,54 @@ def activity(request):
 
 
 def profile(request, username):
-    return render(request, 'main/profile.html', {
 
+
+
+    # followers = Profile.get_followers(User.id)
+    userList = User.objects.values()
+
+    user = get_object_or_404(User, username=username)
+    followers = Profile.get_followers(user)
+
+
+
+    return render(request, 'main/profile.html', {
+        'userList': userList,
+        'followers': followers,
     })
+
+
+def follow(request):
+    try:
+        user_id = request.GET['user-id']
+        to_user = get_object_or_404(User, pk=user_id)
+        from_user = request.user
+
+        following = from_user.profile.get_following()
+
+        if to_user not in following:
+            activity = Activity(from_user=from_user, to_user=to_user, activity_type=Activity.FOLLOW)
+            activity.save()
+            return HttpResponse()
+        else:
+            return HttpResponseBadRequest()
+    except:
+        return HttpResponseBadRequest()
+
+
+def unfollow(request):
+    try:
+        user_id = request.GET['user-id']
+        to_user = get_object_or_404(User, pk=user_id)
+        from_user = request.user
+
+        following = from_user.profile.get_following()
+
+        if to_user in following:
+            activity = Activity.objects.get(from_user=from_user, to_user=to_user, activity_type=Activity.FOLLOW)
+            activity.delete()
+            return HttpResponse()
+        else:
+            return HttpResponseBadRequest()
+    except:
+        return HttpResponseBadRequest()

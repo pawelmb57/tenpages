@@ -7,7 +7,7 @@
 
 <span class="section-header"> Log Pages</span>
 
-<div class="col-10">
+<div class="col-12">
 
     <form method="POST" class="post-form">{% csrf_token %}
 
@@ -16,19 +16,19 @@
         {{ form.log_pages.errors }}
         <div class="row">
           <label for="{{ form.log_date.id_for_label }}" class="col-2 input-label">Date</label>
-          {% render_field form.log_date class="form-control fieldWrapper col-10" type="date" %}
+          {% render_field form.log_date class="form-control fieldWrapper col-6" type="date" %}
         </div>
         <div class="row">
           <label for="{{ form.userbooks.id_for_label }}" class="col-2 input-label">Book</label>
-          {% render_field form.userbooks class="form-control fieldWrapper col-10 text-center" %}
+          {% render_field form.userbooks class="form-control fieldWrapper col-6 text-center" %}
         </div>
         <div class="row">
           <label for="{{ form.log_pages.id_for_label }}" class="col-2 input-label">Pages</label>
-          {% render_field form.log_pages class="form-control fieldWrapper col-10" %}
+          {% render_field form.log_pages class="form-control fieldWrapper col-6" %}
         </div>
         <div class="row">
         <div class="col-2"></div>
-        <div class="col-10">
+        <div class="col-6">
         <button type="submit" class="save btn btn-primary input-button-label">Log</button>
       </div>
       </div>

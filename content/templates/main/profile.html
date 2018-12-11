@@ -8,6 +8,30 @@
 <span class="section-header">Profile</span>
 
 
+<br>username: {{ user.username }}
+<br>date_joined: {{ user.date_joined }}
+
+<br><br>
+
+
+{{ followers }}
+
+
+{{ userList }}
+
+{% if user.is_authenticated %}
+  {% if follow_user.pk != user.pk %}
+    {% if follow_user in user_following %}
+      <div class="user-actions following" data-user-id="{{ follow_user.id }}">
+        <button class="btn btn-small btn-danger" type="button"><span class="glyphicon glyphicon-remove"></span> Unfollow</button>
+      </div>
+    {% else %}
+      <div class="user-actions not-following" data-user-id="{{ follow_user.id }}">
+        <button class="btn btn-small btn-success" type="button"><span class="glyphicon glyphicon-ok"></span> Follow</button>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endif %}
 
 
 
