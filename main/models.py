@@ -23,7 +23,12 @@ class Profile(models.Model):
             followers.append(activity.from_user)
         return followers
 
-
+    def get_following(self):
+        activities = Activity.objects.filter(from_user__pk=self.pk, activity_type=Activity.FOLLOW)
+        following = []
+        for activity in activities:
+            following.append(activity.to_user)
+        return following
 
 
 class Books(models.Model):

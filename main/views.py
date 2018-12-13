@@ -2,7 +2,7 @@
 from django.template.context_processors import csrf
 from django.views.generic import TemplateView
 from django.shortcuts import redirect, render, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseBadRequest
 from django.urls import reverse
 from django.contrib.auth.models import User
 
@@ -11,6 +11,7 @@ from main.models import Books, UserBooks, LogPages, Activity, Profile
 from main.forms import AddBookForm, LogPagesForm#, AddBookUserForm
 
 from itertools import chain
+
 
 
 
@@ -144,53 +145,68 @@ def activity(request):
 
 def profile(request, username):
 
+    # testset = User.objects.values()
+    testset = Activity.objects.values() #filter(to_user__pk=self.pk, activity_type=Activity.FOLLOW)
+    page_user = get_object_or_404(User, username=username)
 
 
-    # followers = Profile.get_followers(User.id)
-    userList = User.objects.values()
+    followers = Profile.get_followers(page_user)
 
-    user = get_object_or_404(User, username=username)
-    followers = Profile.get_followers(user)
+    if request.user == page_user:
+        to_follow = 'ITS YOU'
+    elif request.user in followers:
+        to_follow = 'Unfollow'
+    else:
+        to_follow = 'Follow'
+
+
+
+
+    following = None
+    if request.user.is_authenticated:
+        following = Profile.get_following(page_user)
 
 
 
     return render(request, 'main/profile.html', {
-        'userList': userList,
+        'testset': testset,
         'followers': followers,
+        'following': following,
+        'page_user': page_user,
+        'to_follow': to_follow,
     })
 
 
-def follow(request):
-    try:
-        user_id = request.GET['user-id']
-        to_user = get_object_or_404(User, pk=user_id)
-        from_user = request.user
-
-        following = from_user.profile.get_following()
-
-        if to_user not in following:
-            activity = Activity(from_user=from_user, to_user=to_user, activity_type=Activity.FOLLOW)
-            activity.save()
-            return HttpResponse()
-        else:
-            return HttpResponseBadRequest()
-    except:
-        return HttpResponseBadRequest()
 
 
-def unfollow(request):
-    try:
-        user_id = request.GET['user-id']
-        to_user = get_object_or_404(User, pk=user_id)
-        from_user = request.user
+def act_follow(request, username):
+    print('follow beginning')
 
-        following = from_user.profile.get_following()
+    from_user = request.user
+    to_user   = get_object_or_404(User, username=username)
 
-        if to_user in following:
-            activity = Activity.objects.get(from_user=from_user, to_user=to_user, activity_type=Activity.FOLLOW)
-            activity.delete()
-            return HttpResponse()
-        else:
-            return HttpResponseBadRequest()
-    except:
-        return HttpResponseBadRequest()
+
+    following = Profile.get_following(from_user)
+
+    if to_user not in following:
+        activity = Activity(from_user=from_user, to_user=to_user, activity_type=Activity.FOLLOW)
+        activity.save()
+
+    # return HttpResponse()
+    return HttpResponseRedirect("/")
+
+
+def act_unfollow(request, username):
+    print('unfollow beginning')
+
+    from_user = request.user
+    to_user   = get_object_or_404(User, username=username)
+
+    following = Profile.get_following(from_user)
+
+    if to_user in following:
+        activity = Activity.objects.get(from_user=from_user, to_user=to_user, activity_type=Activity.FOLLOW)
+        activity.delete()
+
+
+    return HttpResponseRedirect("/")

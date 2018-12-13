@@ -7,32 +7,40 @@
 
 <span class="section-header">Profile</span>
 
-
+<br>YOUR
 <br>username: {{ user.username }}
+<br>userid: {{ user.id }}
 <br>date_joined: {{ user.date_joined }}
 
+
+<br><br>PROFILE
+<br>page_user: {{ page_user }}
 <br><br>
 
 
-{{ followers }}
+followers: {{ followers }}<br><br>
 
+following: {{ following }}<br><br>
 
-{{ userList }}
+to_follow: {{ to_follow }}<br><br>
 
-{% if user.is_authenticated %}
-  {% if follow_user.pk != user.pk %}
-    {% if follow_user in user_following %}
-      <div class="user-actions following" data-user-id="{{ follow_user.id }}">
-        <button class="btn btn-small btn-danger" type="button"><span class="glyphicon glyphicon-remove"></span> Unfollow</button>
-      </div>
-    {% else %}
-      <div class="user-actions not-following" data-user-id="{{ follow_user.id }}">
-        <button class="btn btn-small btn-success" type="button"><span class="glyphicon glyphicon-ok"></span> Follow</button>
-      </div>
+  {% if user.is_authenticated %}
+    1) user is authenticated<br>
+    {% if to_follow == 'Unfollow' %}
+      2) following so unfollow<br>
+
+      <a href="{% url 'act_unfollow' page_user %}"> Unfollow </a>
+
+    {% elif to_follow == 'Follow' %}
+      2) not following so follow<br>
+      <a href="{% url 'act_follow' page_user %}"> Follow </a>
+
     {% endif %}
+  {% else %}
+    nay
   {% endif %}
-{% endif %}
 
 
+<br><br><br>{{ testset }}
 
 {% endblock %}

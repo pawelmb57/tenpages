@@ -5,7 +5,7 @@ from django.urls import path
 from django.contrib import admin
 
 
-from main.views import IndexPageView, ChangeLanguageView, new_book, log_pages, log_dash, activity, profile
+from main.views import IndexPageView, ChangeLanguageView, new_book, log_pages, log_dash, activity, profile, act_unfollow, act_follow
 
 
 urlpatterns = [
@@ -19,8 +19,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 urlpatterns += [
@@ -32,6 +30,14 @@ urlpatterns += [
 
     url(r'^(?P<username>[^/]+)/$', profile, name='profile'),
 
+    url(r'^(?P<username>[^/]+)/act_unfollow/$', act_unfollow, name='act_unfollow'),
+    url(r'^(?P<username>[^/]+)/act_follow/$', act_follow, name='act_follow'),
+
 
 
 ]
+
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
