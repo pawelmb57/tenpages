@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     # Vendor apps
     'bootstrap4',
     'widget_tweaks',
-
+    'django.contrib.humanize',
     # Application apps
     'main',
     'accounts',

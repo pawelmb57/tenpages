@@ -135,12 +135,19 @@ class ChangeLanguageView(TemplateView):
 
 def activity(request):
 
-    userList = User.objects.values()
+    userList = User.objects.all()
+
+    following = Profile.get_following(request.user)
+
 
 
     return render(request, 'main/activity.html', {
         'userList': userList,
+        'following': following,
     })
+
+
+
 
 
 def profile(request, username):
@@ -193,7 +200,7 @@ def act_follow(request, username):
         activity.save()
 
     # return HttpResponse()
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def act_unfollow(request, username):
@@ -209,4 +216,4 @@ def act_unfollow(request, username):
         activity.delete()
 
 
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

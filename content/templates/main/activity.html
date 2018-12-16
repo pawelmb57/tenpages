@@ -4,13 +4,64 @@
 
 {% block content %}
 {% load widget_tweaks %}
+{% load static %}
+{% load humanize %}
+
+
+Activity Page
+<br> This is the main "social" page where you can see the activity of other peopl
+<br>1) View activity feed
+<br>2) Find people
+<br><br>
 
 <span class="section-header"> Activity </span>
+
+
+
+<br><br>
+
+<div class="card-group">
+  <div class="card-columns">
+
+
+{% for follow_user in userList %}
+{% if follow_user.username != user.username %}
+    <div class="card">
+      <img class="card-img-top" src="{% static '/looperassets/images/avatars/uifaces22.jpg' %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ follow_user.username }}</h5>
+        <p class="card-text">
+            {% if follow_user in following %}
+            <a href="{% url 'act_unfollow' follow_user.username %}"> Unfollow </a>
+            {% else %}
+            <a href="{% url 'act_follow' follow_user.username %}"> Follow </a>
+            {% endif %}
+        </p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Date joined: {{ follow_user.date_joined|naturalday }}</small>
+      </div>
+    </div>
+
+
+
+{% endif %}
+{% endfor %}
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 
 <div class="col-10">
 
 
-  {{ userList }}
 
 
   <table class="table">
@@ -31,6 +82,11 @@
 
 
 </div>
+
+
+
+
+
 
 
 

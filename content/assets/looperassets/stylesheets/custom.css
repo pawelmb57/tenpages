@@ -1,4 +1,4 @@
-/* put your own styles to customize and override the theme */
+  /* put your own styles to customize and override the theme */
 
 
 body {
@@ -51,4 +51,19 @@ body {
 button {
   width: 100%;
   margin-top: 4%;
+}
+
+
+
+
+@media (min-width: 0px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 600px) {
+  .card-columns {
+    column-count: 5;
+  }
 }

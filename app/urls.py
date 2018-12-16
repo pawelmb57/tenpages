@@ -28,6 +28,7 @@ urlpatterns += [
 
     path('activity/', activity, name='activity'),
 
+    # url(r'^(?P<username>[^/]+)/activity/$', activity, name='activity'),
     url(r'^(?P<username>[^/]+)/$', profile, name='profile'),
 
     url(r'^(?P<username>[^/]+)/act_unfollow/$', act_unfollow, name='act_unfollow'),
