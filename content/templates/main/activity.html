@@ -29,20 +29,21 @@ Activity Page
     <div class="card">
       <img class="card-img-top" src="{% static '/looperassets/images/avatars/uifaces22.jpg' %}" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">{{ follow_user.username }}</h5>
+        <h5 class="card-title"><a href="{% url 'profile' follow_user.username %}">{{ follow_user.username }}</a>
+
+        </h5>
         <p class="card-text">
             {% if follow_user in following %}
-            <a href="{% url 'act_unfollow' follow_user.username %}"> Unfollow </a>
+            <a href="{% url 'act_unfollow' follow_user.username %}"><button class="btn btn-small btn-danger" type="button">Unfollow</button></a>
             {% else %}
-            <a href="{% url 'act_follow' follow_user.username %}"> Follow </a>
+            <a href="{% url 'act_follow' follow_user.username %}"><button class="btn btn-small btn-success" type="button">Follow</button></a>
             {% endif %}
         </p>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Date joined: {{ follow_user.date_joined|naturalday }}</small>
+        <small class="text-muted">Last Read: {{ follow_user.date_joined|naturalday }}</small>
       </div>
     </div>
-
 
 
 {% endif %}
@@ -55,33 +56,6 @@ Activity Page
 
 
 
-
-
-
-
-<div class="col-10">
-
-
-
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">user</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for x in userList %}
-      <tr>
-        <td>{{ x.username }}</td>
-      </tr>
-      {% endfor %}
-
-    </tbody>
-  </table>
-
-
-</div>
 
 
 
