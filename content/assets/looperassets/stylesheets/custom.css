@@ -53,9 +53,12 @@ button {
   margin-top: 4%;
 }
 
+.allow_hscroll_cards > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+}
 
-
-
+/*
 
 @media (min-width: 0px) {
     .card-columns {
@@ -69,4 +72,4 @@ button {
     column-count: 5;
     column-break-inside: avoid;
   }
-}
+} */

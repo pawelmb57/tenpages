@@ -174,6 +174,7 @@ def profile(request, username):
         following = Profile.get_following(page_user)
 
 
+    userbooks = UserBooks.objects.filter(user=request.user).select_related()
 
     return render(request, 'main/profile.html', {
         'testset': testset,
@@ -181,6 +182,7 @@ def profile(request, username):
         'following': following,
         'page_user': page_user,
         'to_follow': to_follow,
+        'userbooks': userbooks,
     })
 
 

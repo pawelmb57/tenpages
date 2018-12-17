@@ -15,28 +15,69 @@ User Profile Page
 <br><br>
 
 
-<div>
-  <span class="section-header"> {{ user.username }} </span>
-  {% if user.is_authenticated %}
-    {% if to_follow == 'Unfollow' %}
-      <a href="{% url 'act_unfollow' page_user %}"><span class="badge badge-danger">Unfollow</span></a>
-    {% elif to_follow == 'Follow' %}
-    <a href="{% url 'act_follow' page_user %}"><span class="badge badge-primary">Follow</span></a>
+<div class="container-fluid">
+  <div class="row">
+    <span class="section-header"> {{ user.username }} </span>
+    {% if user.is_authenticated %}
+      {% if to_follow == 'Unfollow' %}
+        <a href="{% url 'act_unfollow' page_user %}"><span class="badge badge-danger">Unfollow</span></a>
+      {% elif to_follow == 'Follow' %}
+      <a href="{% url 'act_follow' page_user %}"><span class="badge badge-primary">Follow</span></a>
+      {% endif %}
+    {% else %}
+      nay
     {% endif %}
-  {% else %}
-    nay
-  {% endif %}
+
+  </div>
+</div>
 
 
+<div class="container-fluid">
+    <span class="section-header">Books</span>
+
+    <div class="allow_hscroll_cards">
+    <div class="row flex-row flex-nowrap">
+
+
+        {% for book in userbooks %}
+        <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3 allow_hscroll_cards">
+          <div class="card card-body">
+            <h5 class="card-title text-truncate">{{ book.books.book_title}}</h5>
+            <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+        </div>
+      </div>
+        {% endfor %}
+
+
+  </div>
+</div>
 </div>
 
 
 
+<div class="container-fluid">
+    <span class="section-header">Log</span>
+
+    <div class="allow_hscroll_cards">
+    <div class="row flex-row flex-nowrap">
 
 
+        {% for book in userbooks %}
+        <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3 allow_hscroll_cards">
+          <div class="card card-body">
+            <h5 class="card-title text-truncate">{{ book.books.book_title}}</h5>
+            <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+        </div>
+      </div>
+        {% endfor %}
 
 
+  </div>
+</div>
+</div>
 
+
+{{ userbooks }}
 
 
 
