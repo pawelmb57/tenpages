@@ -26,7 +26,7 @@ Activity Page
 
 {% for follow_user in userList %}
 {% if follow_user.username != user.username %}
-    <div class="card">
+    <div class="card flex-nowrap">
       <img class="card-img-top" src="{% static '/looperassets/images/avatars/uifaces22.jpg' %}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"><a href="{% url 'profile' follow_user.username %}">{{ follow_user.username }}</a>
