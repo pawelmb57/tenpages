@@ -34,9 +34,9 @@ Activity Page
         </h5>
         <p class="card-text">
             {% if follow_user in following %}
-            <a href="{% url 'act_unfollow' follow_user.username %}"><button class="btn btn-small btn-danger" type="button">Unfollow</button></a>
+            <a href="{% url 'act_unfollow' follow_user.username %}"><span class="badge badge-danger">Unfollow</span></a>
             {% else %}
-            <a href="{% url 'act_follow' follow_user.username %}"><button class="btn btn-small btn-success" type="button">Follow</button></a>
+            <a href="{% url 'act_follow' follow_user.username %}"><span class="badge badge-primary">Follow</span></a>
             {% endif %}
         </p>
       </div>

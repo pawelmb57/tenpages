@@ -56,14 +56,17 @@ button {
 
 
 
+
 @media (min-width: 0px) {
     .card-columns {
         column-count: 3;
+        column-break-inside: avoid;
     }
 }
 
 @media (min-width: 600px) {
   .card-columns {
     column-count: 5;
+    column-break-inside: avoid;
   }
 }

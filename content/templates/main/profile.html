@@ -14,7 +14,35 @@ User Profile Page
 
 <br><br>
 
-<span class="section-header">Profile</span>
+
+<div>
+  <span class="section-header"> {{ user.username }} </span>
+  {% if user.is_authenticated %}
+    {% if to_follow == 'Unfollow' %}
+      <a href="{% url 'act_unfollow' page_user %}"><span class="badge badge-danger">Unfollow</span></a>
+    {% elif to_follow == 'Follow' %}
+    <a href="{% url 'act_follow' page_user %}"><span class="badge badge-primary">Follow</span></a>
+    {% endif %}
+  {% else %}
+    nay
+  {% endif %}
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <br>YOUR
 <br>username: {{ user.username }}
