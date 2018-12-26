@@ -4,43 +4,54 @@
 
 {% block content %}
 {% load widget_tweaks %}
+{% load humanize %}
+{% load static %}
 
-User Profile Page
-<br>Public information
-<br>1) fiew your information
-<br>2) Quick books
-<br>3) Goals
-<br>4) (un)subscribe
 
-<br><br>
 
 
 <div class="container-fluid">
-  <div class="row">
-    <span class="section-header"> {{ user.username }} </span>
+  <div class="row" style="margin-bottom: 20px;">
+
+    <div class="col-xs-2 col-sm-3 col-md-3 col-lg-2 col-xl-2">
+         <img class="media-object img-circle" src="{% static '/looperassets/images/avatars/team4.jpg' %}" style="width: 100px; height: 100px;">
+
+    </div>
+
+    <div class="col-xs-10 col-sm-9 col-md-9 col-lg-10 col-xl-10">
+<div class="row">
+    <span class="section-header">  <b>{{ page_user }} </b></span>
+
     {% if user.is_authenticated %}
       {% if to_follow == 'Unfollow' %}
-        <a href="{% url 'act_unfollow' page_user %}"><span class="badge badge-danger">Unfollow</span></a>
+        <a href="{% url 'act_unfollow' page_user %}"><span class="badge badge-profile badge-danger">Unfollow</span></a>
       {% elif to_follow == 'Follow' %}
-      <a href="{% url 'act_follow' page_user %}"><span class="badge badge-primary">Follow</span></a>
+      <a href="{% url 'act_follow' page_user %}"><span class="badge badge-profile badge-primary">Follow</span></a>
       {% endif %}
     {% else %}
       nay
     {% endif %}
+</div>
+    <div class="row">
+    Date joined: {{ user.date_joined|naturalday }}  Chage to last read date
+  </div>
+
+  <div class="row">
+    Add following (#) followers(#)
+  </div>
+  </div>
 
   </div>
-</div>
 
+  <span class="section-header">Books</span>
 
-<div class="container-fluid">
-    <span class="section-header">Books</span>
-
-    <div class="allow_hscroll_cards">
-    <div class="row flex-row flex-nowrap">
+  <div class="row">
+limit books to the last 4ish, add a more button that'll take the user to the page user to their book page    <div class="allow_hscroll_cards">
+      <div class="row flex-row flex-nowrap">
 
 
         {% for book in userbooks %}
-        <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3 allow_hscroll_cards">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 allow_hscroll_cards">
           <div class="card card-body">
             <h5 class="card-title text-truncate">{{ book.books.book_title}}</h5>
             <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
@@ -49,35 +60,25 @@ User Profile Page
         {% endfor %}
 
 
+    </div>
+    </div>
   </div>
-</div>
-</div>
 
+  <span class="section-header">Goals</span>
 
+  <div class="row">
 
-<div class="container-fluid">
-    <span class="section-header">Log</span>
-
-    <div class="allow_hscroll_cards">
-    <div class="row flex-row flex-nowrap">
-
-
-        {% for book in userbooks %}
-        <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3 allow_hscroll_cards">
-          <div class="card card-body">
-            <h5 class="card-title text-truncate">{{ book.books.book_title}}</h5>
-            <!-- <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
-        </div>
-      </div>
-        {% endfor %}
-
+    <div>
+    Add something about the users goals
 
   </div>
-</div>
-</div>
+
+  </div>
 
 
-{{ userbooks }}
+
+
+</div>
 
 
 
